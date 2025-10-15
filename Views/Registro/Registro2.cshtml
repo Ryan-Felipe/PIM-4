@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - IA Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0B3D91 0%, #061E3E 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        nav, header, footer, [class*="navbar"], [class*="footer"], [class*="nav"] {
+            display: none !important;
+        }
+
+        .container {
+            display: flex;
+            max-width: 875px;
+            height: 800px;
+            background: transparent;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .image-section {
+            flex: 1.2;
+            background: linear-gradient(135deg, #0B3D91 0%, #1a5bb8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 30px 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-section {
+            flex: 0.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 50px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-area h1 {
+            font-size: 28px;
+            color: #0B3D91;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .logo-area p {
+            color: #888;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #fff;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0B3D91;
+            box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1);
+            background: #fafbfc;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 45px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+            font-size: 18px;
+            user-select: none;
+        }
+
+        .terms-section {
+            margin-bottom: 24px;
+            font-size: 13px;
+        }
+
+        .terms-section input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: #0B3D91;
+            margin-right: 8px;
+        }
+
+        .terms-section label {
+            color: #666;
+            font-weight: 400;
+        }
+
+        .terms-section a {
+            color: #0B3D91;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-section a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #0B3D91 0%, #1a5bb8 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(11, 61, 145, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(11, 61, 145, 0.4);
+        }
+
+        .btn-register:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #0B3D91;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: #1a5bb8;
+            text-decoration: underline;
+        }
+
+        @@media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .image-section {
+                min-height: 250px;
+            }
+
+            .form-section {
+                padding: 40px 30px;
+            }
+
+            .logo-area h1 {
+                font-size: 24px;
+            }
+        }
+
+        @@media (max-width: 480px) {
+            .container {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .image-section {
+                min-height: 220px;
+                padding: 30px 20px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .logo-area h1 {
+                font-size: 20px;
+            }
+
+            .logo-area p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="https://img.freepik.com/fotos-gratis/ai-robot-gazing-at-code-a-futuristic-cyberpunk-vision_23-2152000915.jpg?semt=ais_hybrid&w=740&q=80" alt="IA e Tecnologia">
+        </div>
+
+        <div class="form-section">
+            <div class="form-container">
+                <div class="logo-area">
+                    <h1>IA Ajuda</h1>
+                    <p>Crie sua conta</p>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="username">Nome de Usuário</label>
+                        <input type="text" id="username" name="username" placeholder="Escolha um nome de usuário" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            <span class="toggle-password" onclick="togglePassword('password')">🔒</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+                            <span class="toggle-password" onclick="togglePassword('confirm-password')">🔒</span>
+                        </div>
+                    </div>
+
+                    <div class="terms-section">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            Aceito os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-register">Criar Conta</button>
+
+                    <div class="login-link">
+                        Já tem uma conta? <a href="/teste/pagina_teste">Faça login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleIcon = passwordInput.parentElement.querySelector('.toggle-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '🔓';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '🔒';
+            }
+        }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+            
+            alert('Conta criada com sucesso! Redirecionando para o login...');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
